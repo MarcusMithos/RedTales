@@ -1,5 +1,6 @@
 import os
 import sys
+from fpdf import FPDF
 
 if getattr(sys, 'frozen', False):
     # Running as EXE
@@ -9,7 +10,6 @@ else:
     base_path = os.path.dirname(os.path.abspath(__file__))
 
 os.chdir(base_path)
-from fpdf import FPDF
 
 def main():
     pdf = FPDF()

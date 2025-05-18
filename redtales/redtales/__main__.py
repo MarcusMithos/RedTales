@@ -3,13 +3,17 @@ import sys
 import io
 from fpdf import FPDF
 
+# Force console output encoding to UTF-8 to avoid UnicodeEncodeError on Windows
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 if getattr(sys, 'frozen', False):
+    # Running as a bundled EXE
     base_path = sys._MEIPASS
 else:
+    # Running as a script
     base_path = os.path.dirname(os.path.abspath(__file__))
 
+# Change working directory to where script or EXE resources are
 os.chdir(base_path)
 
 def main():
